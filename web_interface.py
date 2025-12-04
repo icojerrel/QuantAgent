@@ -1035,6 +1035,29 @@ def serve_assets(filename):
         return jsonify({"error": "Asset not found"}), 404
 
 
+@app.route("/health")
+def health_check():
+    """Health check endpoint for monitoring and container orchestration."""
+    try:
+        # Basic health check - verify analyzer is initialized
+        if analyzer and analyzer.trading_graph:
+            return jsonify({
+                "status": "healthy",
+                "service": "QuantAgent",
+                "timestamp": datetime.now().isoformat()
+            }), 200
+        else:
+            return jsonify({
+                "status": "unhealthy",
+                "error": "Trading analyzer not initialized"
+            }), 503
+    except Exception as e:
+        return jsonify({
+            "status": "unhealthy",
+            "error": str(e)
+        }), 503
+
+
 if __name__ == "__main__":
     # Create templates directory if it doesn't exist
     templates_dir = Path("templates")
@@ -1044,4 +1067,10 @@ if __name__ == "__main__":
     static_dir = Path("static")
     static_dir.mkdir(exist_ok=True)
 
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    # Get configuration from environment variables
+    host = os.getenv("HOST", "127.0.0.1")
+    port = int(os.getenv("PORT", "5000"))
+    debug = os.getenv("FLASK_DEBUG", "1") == "1"
+
+    print(f"🚀 Starting QuantAgent on {host}:{port}")
+    app.run(debug=debug, host=host, port=port)

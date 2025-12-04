@@ -99,20 +99,47 @@ Modern Flask-based web application with:
 
 ## 📦 Installation
 
-### 1. Create and Activate Conda Environment
+### 🐳 Docker Installation (Recommended)
+
+The fastest way to get started:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Y-Research-SBU/QuantAgent.git
+cd QuantAgent
+
+# 2. Configure your API keys
+cp .env.example .env
+nano .env  # Add your API keys
+
+# 3. Deploy with one command
+./deploy.sh
+```
+
+Access the web interface at `http://localhost:5000`
+
+📚 **For detailed deployment options (Docker, Cloud, Local)**, see [DEPLOYMENT.md](DEPLOYMENT.md)
+
+---
+
+### 🔧 Manual Installation (Development)
+
+For local development without Docker:
+
+#### 1. Create and Activate Conda Environment
 
 ```bash
 conda create -n quantagents python=3.11
 conda activate quantagents
 ```
 
-### 2. Install Dependencies
+#### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-If you encounter issues with TA-lib-python, 
+If you encounter issues with TA-lib-python,
 try
 
 ```bash
@@ -121,7 +148,7 @@ conda install -c conda-forge ta-lib
 
 Or visit the [TA-Lib Python repository](https://github.com/ta-lib/ta-lib-python) for detailed installation instructions.
 
-### 3. Set Up LLM API Key
+#### 3. Set Up LLM API Key
 You can set it in our Web InterFace Later,
 
 ![alt text](assets/apibox.png)

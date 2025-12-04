@@ -8,3 +8,19 @@ pdf_content.txt
 read.html
 read_files/
 app/
+
+# Environment variables
+.env
+.env.local
+
+# Docker volumes
+data/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
