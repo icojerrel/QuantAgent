@@ -97,6 +97,18 @@ Modern Flask-based web application with:
   - Dynamic chart generation
   - API key management
 
+### 📊 Performance Dashboard (New!)
+Comprehensive trading performance visualization:
+  - **Real-time Metrics**: Win rate, Sharpe ratio, profit factor, max drawdown
+  - **Equity Curve**: Visual account growth tracking
+  - **Daily P&L Charts**: 30-day profit/loss visualization
+  - **Trade History**: Filterable, sortable trade log
+  - **Open Positions Monitor**: Live position tracking with unrealized P&L
+  - **Performance Analytics**: Symbol and timeframe performance breakdowns
+  - **Auto-refresh**: Updates every 30 seconds
+
+📚 **For dashboard setup and API docs**, see [DASHBOARD.md](DASHBOARD.md)
+
 ## 📦 Installation
 
 ### 🐳 Docker Installation (Recommended)
@@ -187,6 +199,23 @@ The web application will be available at `http://127.0.0.1:5000`
 3. **Date Range**: Select custom date ranges for analysis
 4. **Real-time Analysis**: Get comprehensive technical analysis with visualizations
 5. **API Key Management**: Update your OpenAI API key through the interface
+
+### Enable Performance Dashboard
+
+```bash
+# One-command installation
+python enable_dashboard.py
+```
+
+Access the dashboard at `http://localhost:5000/dashboard`
+
+**Dashboard features:**
+- 📊 Real-time performance metrics and equity curve
+- 💰 Daily P&L charts and trade history
+- 📍 Open positions monitor with live P&L
+- 🎯 Performance breakdowns by symbol and timeframe
+
+See [DASHBOARD.md](DASHBOARD.md) for complete documentation.
 
 ## 📺 Demo
 
